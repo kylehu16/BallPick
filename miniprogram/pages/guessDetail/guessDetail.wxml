@@ -1,0 +1,100 @@
+<view class="page-guess-detail">
+  <!-- 自定义导航头 -->
+  <nav-header statusBarHeight="{{statusBarHeight}}">
+    <view class="nav-header-content">
+      <view class="nav-left" bindtap="onBack">
+        <text class="icon-back">‹</text>
+      </view>
+      <text class="nav-title">胜负竞猜</text>
+      <view class="nav-right"></view>
+    </view>
+  </nav-header>
+
+  <!-- 比赛信息卡片 -->
+  <view class="match-info" wx:if="{{match}}">
+    <view class="match-tournament">{{match.tournament}}</view>
+
+    <view class="match-teams">
+      <view class="team-block">
+        <image class="team-flag-lg" src="{{match.homeFlagUrl}}" mode="aspectFit" wx:if="{{match.homeFlagUrl}}"></image>
+        <view class="team-avatar-lg" style="background: linear-gradient(135deg, {{match.homeColor.from}}, {{match.homeColor.to}});" wx:else>
+          <text class="team-avatar-text-lg">{{match.homeShort}}</text>
+        </view>
+        <text class="team-name-lg">{{match.homeTeam}}</text>
+      </view>
+
+      <view class="vs-block">
+        <text class="vs-lg">VS</text>
+        <view class="match-datetime">
+          <text class="datetime-text">{{match.date}} {{match.time}}</text>
+        </view>
+      </view>
+
+      <view class="team-block">
+        <image class="team-flag-lg" src="{{match.awayFlagUrl}}" mode="aspectFit" wx:if="{{match.awayFlagUrl}}"></image>
+        <view class="team-avatar-lg" style="background: linear-gradient(135deg, {{match.awayColor.from}}, {{match.awayColor.to}});" wx:else>
+          <text class="team-avatar-text-lg">{{match.awayShort}}</text>
+        </view>
+        <text class="team-name-lg">{{match.awayTeam}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分享者预测提示 -->
+  <view class="sharer-hint" wx:if="{{sharerPrediction}}">
+    <text class="sharer-hint-text">{{sharerNickname}} 预测：{{sharerPrediction}}，你也来猜吧！</text>
+  </view>
+
+  <!-- 选择区域 -->
+  <view class="selection-area" wx:if="{{match}}">
+    <text class="section-title">选择你预测的胜方</text>
+
+    <view class="options">
+      <!-- 主队胜 -->
+      <view class="option-card {{selected === 'home' ? 'option-active' : ''}}" bindtap="onSelect" data-value="home">
+        <view class="option-emoji">🏠</view>
+        <text class="option-label">{{match.homeTeam}}</text>
+        <text class="option-desc">主队胜</text>
+        <view class="option-check" wx:if="{{selected === 'home'}}">
+          <text class="check-icon">✓</text>
+        </view>
+      </view>
+
+      <!-- 平局 -->
+      <view class="option-card option-draw {{selected === 'draw' ? 'option-active' : ''}}" bindtap="onSelect" data-value="draw">
+        <view class="option-emoji">🤝</view>
+        <text class="option-label">平局</text>
+        <text class="option-desc">双方打平</text>
+        <view class="option-check" wx:if="{{selected === 'draw'}}">
+          <text class="check-icon">✓</text>
+        </view>
+      </view>
+
+      <!-- 客队胜 -->
+      <view class="option-card {{selected === 'away' ? 'option-active' : ''}}" bindtap="onSelect" data-value="away">
+        <view class="option-emoji">✈️</view>
+        <text class="option-label">{{match.awayTeam}}</text>
+        <text class="option-desc">客队胜</text>
+        <view class="option-check" wx:if="{{selected === 'away'}}">
+          <text class="check-icon">✓</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <view class="submit-area">
+      <block wx:if="{{canEdit}}">
+        <button class="btn-submit {{!selected ? 'btn-disabled' : ''}}" disabled="{{!selected || submitting}}" bindtap="onSubmit" loading="{{submitting}}">
+          {{submitting ? '提交中...' : (isEditing ? '修改竞猜' : '提交竞猜')}}
+        </button>
+        <!-- 删除按钮：仅在编辑模式时显示 -->
+        <view class="btn-delete-guess" wx:if="{{isEditing}}" bindtap="onDeleteGuess">
+          <text class="btn-delete-guess-text">删除竞猜</text>
+        </view>
+      </block>
+      <view class="edit-locked-tip" wx:else>
+        <text class="edit-locked-text">比赛已开始或已结束，无法提交竞猜</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,87 @@
+<view class="match-card">
+  <!-- 赛事标签 + 状态标签 -->
+  <view class="card-header">
+    <view class="tag-match">
+      <text class="tag-match-text">{{match.tournament}}</text>
+    </view>
+    <view class="tag-live" wx:if="{{match.status === 'live'}}">
+      <text class="tag-live-text">LIVE</text>
+    </view>
+    <view class="tag-finished" wx:if="{{match.status === 'finished'}}">
+      <text class="tag-finished-text">已结束</text>
+    </view>
+  </view>
+
+  <!-- 队伍 VS 区域 -->
+  <view class="card-body">
+    <!-- 主队 -->
+    <view class="team-wrapper team-left">
+      <image class="team-flag" src="{{match.homeFlagUrl}}" mode="aspectFit" wx:if="{{match.homeFlagUrl}}"></image>
+      <view class="team-avatar" style="background: linear-gradient(135deg, {{match.homeColor.from}}, {{match.homeColor.to}});" wx:else>
+        <text class="team-avatar-text">{{match.homeShort}}</text>
+      </view>
+      <text class="team-name">{{match.homeTeam}}</text>
+    </view>
+
+    <!-- 中间区域：VS / 比分 -->
+    <view class="vs-wrapper">
+      <!-- 未开赛：VS + 时间（已根据设备时区转换） -->
+      <block wx:if="{{match.status === 'upcoming'}}">
+        <text class="vs-text">VS</text>
+        <view class="match-date">
+          <image class="icon-calendar" src="/images/1.svg" mode="aspectFit"></image>
+          <text class="date-text">{{displayDate}}</text>
+        </view>
+        <view class="match-time">
+          <image class="icon-clock" src="/images/2.svg" mode="aspectFit"></image>
+          <text class="time-text">{{displayTime}}</text>
+        </view>
+      </block>
+      <!-- 进行中 / 已结束：显示比分 -->
+      <block wx:else>
+        <view class="score-board">
+          <text class="score-num">{{match.homeScore}}</text>
+          <text class="score-colon">:</text>
+          <text class="score-num">{{match.awayScore}}</text>
+        </view>
+        <!-- 进行中额外显示时间 -->
+        <text class="live-text" wx:if="{{match.status === 'live'}}">进行中</text>
+      </block>
+    </view>
+
+    <!-- 客队 -->
+    <view class="team-wrapper team-right">
+      <image class="team-flag" src="{{match.awayFlagUrl}}" mode="aspectFit" wx:if="{{match.awayFlagUrl}}"></image>
+      <view class="team-avatar" style="background: linear-gradient(135deg, {{match.awayColor.from}}, {{match.awayColor.to}});" wx:else>
+        <text class="team-avatar-text">{{match.awayShort}}</text>
+      </view>
+      <text class="team-name">{{match.awayTeam}}</text>
+    </view>
+  </view>
+
+  <!-- AI 预测区域 -->
+  <view class="ai-predict" wx:if="{{aiPrediction}}">
+    <view class="ai-predict-header">
+      <text class="ai-icon">🤖</text>
+      <text class="ai-label">AI 预测</text>
+    </view>
+    <view class="ai-predict-body">
+      <view class="ai-result-row">
+        <text class="ai-winner">{{aiWinnerText}}</text>
+        <text class="ai-score" wx:if="{{aiScore}}">{{aiScore}}</text>
+        <text class="ai-confidence" wx:if="{{aiConfidence}}">置信度 {{aiConfidence}}</text>
+      </view>
+      <text class="ai-reasoning" wx:if="{{aiReasoning}}">{{aiReasoning}}</text>
+    </view>
+  </view>
+
+  <!-- 竞猜按钮区域（已结束隐藏） -->
+  <view class="card-footer" wx:if="{{match.status !== 'finished'}}">
+    <view class="btn-guess btn-guess-outline" bindtap="onGuessClick" data-type="win">
+      <text class="btn-guess-text btn-guess-text-dark">胜负竞猜</text>
+    </view>
+    <view class="btn-guess btn-guess-filled" bindtap="onGuessClick" data-type="score">
+      <text class="btn-guess-text btn-guess-text-light">比分竞猜</text>
+    </view>
+  </view>
+</view>

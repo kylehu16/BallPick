@@ -1,0 +1,9 @@
+{
+  "name": "settleGuesses",
+  "version": "1.0.0",
+  "description": "竞猜结算云函数：比较用户预测与实际比赛结果，更新竞猜状态和用户统计",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^2.6.0"
+  }
+}

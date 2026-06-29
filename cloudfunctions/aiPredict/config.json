@@ -1,0 +1,9 @@
+{
+  "triggers": [
+    {
+      "name": "aiPredictTimer",
+      "type": "timer",
+      "config": "0 0 */1 * * * *"
+    }
+  ]
+}

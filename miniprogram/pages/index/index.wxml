@@ -1,0 +1,82 @@
+<view class="page-index">
+  <!-- 自定义导航头 -->
+  <nav-header statusBarHeight="{{statusBarHeight}}">
+    <view class="nav-header-content">
+      <text class="nav-title">⚽ 这球怎么猜</text>
+      <text class="nav-subtitle">预测比赛结果，赢取徽章</text>
+    </view>
+  </nav-header>
+
+  <!-- 自定义 Tab 切换栏 -->
+  <view class="tab-bar-wrapper">
+    <view class="tab-bar-inner">
+      <view
+        class="tab-item {{currentTab === 0 ? 'tab-item-active' : ''}}"
+        data-index="0"
+        bindtap="onTabChange"
+      >
+        <text class="tab-label">即将开始</text>
+        <text class="tab-count">({{tabCounts[0]}})</text>
+      </view>
+      <view
+        class="tab-item {{currentTab === 1 ? 'tab-item-active' : ''}}"
+        data-index="1"
+        bindtap="onTabChange"
+      >
+        <text class="tab-label">正在进行</text>
+        <text class="tab-count">({{tabCounts[1]}})</text>
+      </view>
+      <view
+        class="tab-item {{currentTab === 2 ? 'tab-item-active' : ''}}"
+        data-index="2"
+        bindtap="onTabChange"
+      >
+        <text class="tab-label">已结束</text>
+        <text class="tab-count">({{tabCounts[2]}})</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分类筛选 Tag 栏 -->
+  <view class="category-bar">
+    <view
+      class="category-tag {{currentCategory === index ? 'category-active' : ''}}"
+      wx:for="{{categories}}"
+      wx:key="index"
+      data-index="{{index}}"
+      bindtap="onCategoryTap"
+    >
+      <text class="category-tag-text">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 比赛列表 -->
+  <scroll-view class="match-list" scroll-y bindscrolltolower="onScrollToLower" lower-threshold="100">
+    <!-- 初始加载中 -->
+    <view class="loading-tip" wx:if="{{loading}}">
+      <text class="loading-tip-text">加载中...</text>
+    </view>
+    <!-- 比赛卡片 -->
+    <match-card
+      wx:for="{{filteredMatches}}"
+      wx:key="_id"
+      match="{{item}}"
+      aiPrediction="{{aiPredictionMap[item._id]}}"
+    />
+    <!-- 加载更多 -->
+    <view class="loading-tip" wx:if="{{loadingMore}}">
+      <text class="loading-tip-text">加载更多...</text>
+    </view>
+    <!-- 没有更多 -->
+    <view class="loading-tip" wx:if="{{!loading && !loadingMore && !isEmpty && noMore}}">
+      <text class="loading-tip-text">— 已加载全部 —</text>
+    </view>
+    <!-- 空状态 -->
+    <view class="loading-tip" wx:if="{{!loading && isEmpty}}">
+      <text class="loading-tip-text">暂无比赛数据</text>
+    </view>
+  </scroll-view>
+
+  <!-- 底部导航 -->
+  <bottom-tab current="index"></bottom-tab>
+</view>

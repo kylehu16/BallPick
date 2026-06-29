@@ -1,0 +1,9 @@
+{
+  "name": "getBadgeStatus",
+  "version": "1.0.0",
+  "description": "获取用户徽章状态：合并 badges 和 user_badges 数据",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

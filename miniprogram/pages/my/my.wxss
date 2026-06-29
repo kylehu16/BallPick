@@ -1,0 +1,191 @@
+.page-my {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #EFF6FF 0%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-header-content {
+  position: relative;
+  padding: 16rpx 48rpx 32rpx;
+  z-index: 2;
+}
+
+.nav-title {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #ffffff;
+  display: block;
+}
+
+.nav-subtitle {
+  font-size: 28rpx;
+  color: #DBEAFE;
+  display: block;
+  margin-top: 8rpx;
+}
+
+/* 用户信息卡片 */
+.user-card {
+  margin: 24rpx 32rpx 0;
+  background: #ffffff;
+  border-radius: 28rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+}
+
+.user-row {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  padding: 32rpx;
+}
+
+/* 头像选择按钮 */
+.avatar-btn {
+  width: 96rpx;
+  height: 96rpx;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.avatar-btn::after {
+  border: none;
+}
+
+.user-avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E5E7EB 0%, #D1D5DB 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.user-avatar-img {
+  background: none;
+}
+
+.avatar-icon {
+  width: 44rpx;
+  height: 44rpx;
+  opacity: 0.5;
+}
+
+.user-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-name {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1D2129;
+  display: block;
+}
+
+.nickname-wrap {
+  display: block;
+}
+
+.nickname-form {
+  display: block;
+}
+
+.nickname-input {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1D2129;
+  background: transparent;
+  border: none;
+  padding: 0;
+  min-height: auto;
+  display: block;
+  outline: none;
+}
+
+.nickname-input::placeholder {
+  color: #9CA3AF;
+}
+
+/* 功能菜单列表 */
+.menu-list {
+  padding: 24rpx 32rpx;
+  flex: 1;
+}
+
+/* 菜单卡片 */
+.menu-card {
+  background: #ffffff;
+  border-radius: 28rpx;
+  border: 2rpx solid rgba(0, 0, 0, 0.08);
+  padding: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-left {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  flex: 1;
+  min-width: 0;
+}
+
+.menu-icon {
+  font-size: 40rpx;
+  width: 48rpx;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.menu-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.menu-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #0A0A0A;
+}
+
+.menu-desc {
+  font-size: 24rpx;
+  color: #717182;
+}
+
+.menu-desc-hint {
+  color: #9CA3AF;
+}
+
+.team-flags {
+  display: flex;
+  gap: 8rpx;
+  flex-wrap: wrap;
+  margin-top: 4rpx;
+}
+
+.team-flag {
+  width: 64rpx;
+  height: 44rpx;
+  border-radius: 6rpx;
+  border: 2rpx solid #E5E7EB;
+  flex-shrink: 0;
+}
+
+.menu-arrow {
+  font-size: 28rpx;
+  color: #99A1AF;
+  flex-shrink: 0;
+  margin-left: 16rpx;
+}

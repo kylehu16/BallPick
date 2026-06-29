@@ -1,0 +1,169 @@
+.page-badge {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #FAF5FF 0%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-header-content {
+  position: relative;
+  padding: 16rpx 48rpx 32rpx;
+  z-index: 2;
+}
+
+.nav-title-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.nav-medal {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.nav-title {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.nav-subtitle {
+  font-size: 28rpx;
+  color: #F3E8FF;
+  display: block;
+  margin-top: 8rpx;
+}
+
+/* 徽章总览 */
+.badge-summary {
+  display: flex;
+  align-items: center;
+  margin: 24rpx 32rpx;
+  padding: 20rpx 24rpx;
+  background: linear-gradient(90deg, #EEF2FF 0%, #FAF5FF 100%);
+  border-radius: 28rpx;
+  border: 2rpx solid #C6D2FF;
+}
+
+.summary-medal {
+  width: 56rpx;
+  height: 56rpx;
+  flex-shrink: 0;
+}
+
+.summary-info {
+  flex: 1;
+  margin-left: 16rpx;
+}
+
+.summary-count {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #59168B;
+  display: block;
+}
+
+.summary-label {
+  font-size: 24rpx;
+  color: #8200DB;
+  display: block;
+  margin-top: 4rpx;
+}
+
+.summary-progress {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.progress-percent {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #59168B;
+  display: block;
+}
+
+.progress-label {
+  font-size: 24rpx;
+  color: #8200DB;
+  display: block;
+  margin-top: 4rpx;
+}
+
+/* 徽章网格 */
+.badge-grid {
+  flex: 1;
+  padding: 8rpx 0 160rpx;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.badge-grid-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  padding: 0 32rpx;
+  align-content: flex-start;
+}
+
+/* 徽章卡片 */
+.badge-card {
+  width: calc(50% - 10rpx);
+  background: #ffffff;
+  border-radius: 28rpx;
+  border: 2rpx solid rgba(0, 0, 0, 0.08);
+  padding: 32rpx 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.6;
+  box-sizing: border-box;
+}
+
+.badge-icon {
+  margin-bottom: 6rpx;
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2rpx 4rpx -2rpx rgba(0, 0, 0, 0.1), 0 4rpx 8rpx -2rpx rgba(0, 0, 0, 0.1);
+}
+
+.badge-emoji {
+  font-size: 48rpx;
+}
+
+.badge-name {
+  margin-bottom: 4rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #0A0A0A;
+  text-align: center;
+}
+
+.badge-desc {
+  font-size: 24rpx;
+  color: #717182;
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 2rpx;
+}
+
+.badge-status-text {
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #99A1AF;
+  padding: 2rpx 18rpx;
+  border-radius: 16rpx;
+  border: 2rpx solid rgba(0, 0, 0, 0.08);
+  line-height: 1.4;
+  display: inline-block;
+}
+
+.badge-status-unlocked {
+  color: #00A63E;
+  border-color: #00A63E;
+  background: #F0FDF4;
+}

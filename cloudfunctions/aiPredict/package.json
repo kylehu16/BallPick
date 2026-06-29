@@ -1,0 +1,9 @@
+{
+  "name": "aiPredict",
+  "version": "1.0.0",
+  "description": "使用AI模型对未开赛比赛进行预测",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^3.16.0"
+  }
+}

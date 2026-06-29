@@ -1,0 +1,9 @@
+{
+  "name": "evaluateBadges",
+  "version": "1.0.0",
+  "description": "徽章评估云函数：每小时定时触发，全量评估用户徽章条件并颁发徽章",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^2.6.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "timeout": 60,
+  "envVariables": {},
+  "triggers": [
+    {
+      "name": "every3Hours",
+      "type": "timer",
+      "config": "0 0 */3 * * * *"
+    }
+  ]
+}

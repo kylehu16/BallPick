@@ -1,0 +1,10 @@
+{
+  "name": "updateMatchScores",
+  "version": "1.0.0",
+  "description": "从SportScore API获取比赛实时比分并更新数据库",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^2.6.0",
+    "axios": "^1.6.0"
+  }
+}

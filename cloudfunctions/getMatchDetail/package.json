@@ -1,0 +1,9 @@
+{
+  "name": "getMatchDetail",
+  "version": "1.0.0",
+  "description": "获取单场比赛详情，时间转换为北京时间",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^2.6.0"
+  }
+}

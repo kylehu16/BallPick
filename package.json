@@ -1,0 +1,10 @@
+{
+  "name": "ballpick",
+  "version": "1.0.0",
+  "description": "这球怎么猜",
+  "main": "app.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "Hu Xiaojun",
+  "license": "MIT"
+}

@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/guess/guess",
+    "pages/guessDetail/guessDetail",
+    "pages/guessDetailScore/guessDetailScore",
+    "pages/badge/badge",
+    "pages/my/my",
+    "pages/teamSelect/teamSelect"
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "backgroundColor": "#f5f5f5",
+    "backgroundTextStyle": "light"
+  },
+  "usingComponents": {
+    "bottom-tab": "/components/bottomTab/bottomTab",
+    "nav-header": "/components/navHeader/navHeader"
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

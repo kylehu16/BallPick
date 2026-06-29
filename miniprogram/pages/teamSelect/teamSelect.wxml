@@ -1,0 +1,75 @@
+<view class="page-team-select">
+  <!-- 导航头 -->
+  <nav-header statusBarHeight="{{statusBarHeight}}">
+    <view class="nav-header-content">
+      <view class="nav-left" bindtap="onBack">
+        <text class="icon-back">‹</text>
+      </view>
+      <text class="nav-title">我的主队</text>
+      <view class="nav-right"></view>
+    </view>
+  </nav-header>
+
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input-wrap">
+      <text class="search-icon">🔍</text>
+      <input
+        class="search-input"
+        placeholder="搜索国家名称"
+        value="{{searchKey}}"
+        bindinput="onSearchInput"
+      />
+      <text class="search-clear" bindtap="onClear" wx:if="{{searchKey}}">✕</text>
+    </view>
+  </view>
+
+  <!-- 已选计数 -->
+  <view class="selected-bar" wx:if="{{selectedCount > 0}}">
+    <text class="selected-text">已选 {{selectedCount}} 支球队</text>
+  </view>
+
+  <!-- 国家列表 -->
+  <scroll-view class="country-list" scroll-y>
+    <view class="country-list-inner">
+      <view
+        class="country-item {{selectedMap[item._id] ? 'country-checked' : ''}}"
+        wx:for="{{displayList}}"
+        wx:key="_id"
+        data-id="{{item._id}}"
+        bindtap="onToggle"
+      >
+        <image class="country-flag" src="{{item.flagUrl}}" mode="aspectFill"></image>
+        <view class="country-text">
+          <text class="country-name">{{item.nameZh}}</text>
+          <text class="country-name-en">{{item.nameEn}}</text>
+        </view>
+        <view class="check-box {{selectedMap[item._id] ? 'check-active' : ''}}">
+          <text class="check-mark" wx:if="{{selectedMap[item._id]}}">✓</text>
+        </view>
+      </view>
+
+      <view class="empty-tip" wx:if="{{displayList.length === 0}}">
+        <text>未找到匹配的国家</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 翻页器 -->
+  <view class="paginator">
+    <view class="page-btn {{page <= 1 ? 'page-btn-disabled' : ''}}" bindtap="onPrev">
+      <text class="page-btn-text">上一页</text>
+    </view>
+    <text class="page-info">{{page}}/{{totalPages}}</text>
+    <view class="page-btn {{page >= totalPages ? 'page-btn-disabled' : ''}}" bindtap="onNext">
+      <text class="page-btn-text">下一页</text>
+    </view>
+  </view>
+
+  <!-- 底部确认按钮 -->
+  <view class="footer-bar">
+    <button class="btn-confirm" bindtap="onConfirm">
+      确认选择（{{selectedCount}}）
+    </button>
+  </view>
+</view>

@@ -1,0 +1,13 @@
+.nav-header {
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.nav-header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

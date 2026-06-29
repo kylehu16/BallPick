@@ -1,0 +1,45 @@
+<view class="page-badge">
+  <!-- 自定义导航头 -->
+  <nav-header statusBarHeight="{{statusBarHeight}}">
+    <view class="nav-header-content">
+      <view class="nav-title-row">
+        <text class="nav-title">⚽ 这球怎么猜</text>
+      </view>
+      <text class="nav-subtitle">预测比赛结果，赢取徽章</text>
+    </view>
+  </nav-header>
+
+  <!-- 徽章总览 -->
+  <view class="badge-summary">
+    <image class="summary-medal" src="/assets/CodeBuddyAssets/8_991/2.svg" mode="aspectFit"></image>
+    <view class="summary-info">
+      <text class="summary-count">{{unlockedCount}}/{{totalCount}}</text>
+      <text class="summary-label">已解锁徽章</text>
+    </view>
+    <view class="summary-progress">
+      <text class="progress-percent">{{completionPercent}}%</text>
+      <text class="progress-label">完成度</text>
+    </view>
+  </view>
+
+  <!-- 徽章网格 -->
+  <scroll-view class="badge-grid" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="badge-grid-inner">
+      <view
+        class="badge-card"
+        wx:for="{{badgeList}}"
+        wx:key="_id"
+      >
+        <view class="badge-icon" style="background: linear-gradient(135deg, {{item.color.from}}, {{item.color.to}});">
+          <text class="badge-emoji">{{item.emoji}}</text>
+        </view>
+        <text class="badge-name">{{item.name}}</text>
+        <text class="badge-desc">{{item.desc}}</text>
+        <text class="badge-status-text {{item.unlocked ? 'badge-status-unlocked' : ''}}">{{item.unlocked ? '已解锁' : '未解锁'}}</text>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 底部导航 -->
+  <bottom-tab current="badge"></bottom-tab>
+</view>

@@ -1,0 +1,122 @@
+<view class="page-guess-score">
+  <!-- 自定义导航头 -->
+  <nav-header statusBarHeight="{{statusBarHeight}}">
+    <view class="nav-header-content">
+      <view class="nav-left" bindtap="onBack">
+        <text class="icon-back">‹</text>
+      </view>
+      <text class="nav-title">比分竞猜</text>
+      <view class="nav-right"></view>
+    </view>
+  </nav-header>
+
+  <!-- 比赛信息卡片 -->
+  <view class="match-info" wx:if="{{match}}">
+    <view class="match-tournament">{{match.tournament}}</view>
+
+    <view class="match-teams">
+      <view class="team-block">
+        <image class="team-flag-lg" src="{{match.homeFlagUrl}}" mode="aspectFit" wx:if="{{match.homeFlagUrl}}"></image>
+        <view class="team-avatar-lg" style="background: linear-gradient(135deg, {{match.homeColor.from}}, {{match.homeColor.to}});" wx:else>
+          <text class="team-avatar-text-lg">{{match.homeShort}}</text>
+        </view>
+        <text class="team-name-lg">{{match.homeTeam}}</text>
+      </view>
+
+      <view class="vs-block">
+        <text class="vs-lg">VS</text>
+        <view class="match-datetime">
+          <text class="datetime-text">{{match.date}} {{match.time}}</text>
+        </view>
+      </view>
+
+      <view class="team-block">
+        <image class="team-flag-lg" src="{{match.awayFlagUrl}}" mode="aspectFit" wx:if="{{match.awayFlagUrl}}"></image>
+        <view class="team-avatar-lg" style="background: linear-gradient(135deg, {{match.awayColor.from}}, {{match.awayColor.to}});" wx:else>
+          <text class="team-avatar-text-lg">{{match.awayShort}}</text>
+        </view>
+        <text class="team-name-lg">{{match.awayTeam}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分享者预测提示 -->
+  <view class="sharer-hint" wx:if="{{sharerPrediction}}">
+    <text class="sharer-hint-text">{{sharerNickname}} 预测：{{sharerPrediction}}，你也来猜吧！</text>
+  </view>
+
+  <!-- 比分输入区域 -->
+  <view class="score-area" wx:if="{{match}}">
+    <text class="section-title">输入你预测的比分</text>
+
+    <view class="score-input-row">
+      <!-- 主队比分 -->
+      <view class="score-team">
+        <text class="score-team-name">{{match.homeTeam}}</text>
+        <view class="score-control">
+          <view class="score-btn" bindtap="onScoreChange" data-field="homeScore" data-action="minus">
+            <text class="score-btn-text">−</text>
+          </view>
+          <input
+            class="score-input"
+            type="number"
+            value="{{homeScore}}"
+            bindinput="onInputScore"
+            data-field="homeScore"
+            maxlength="2"
+          />
+          <view class="score-btn" bindtap="onScoreChange" data-field="homeScore" data-action="plus">
+            <text class="score-btn-text">+</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 分隔符 -->
+      <view class="score-separator">
+        <text class="score-colon">:</text>
+      </view>
+
+      <!-- 客队比分 -->
+      <view class="score-team">
+        <text class="score-team-name">{{match.awayTeam}}</text>
+        <view class="score-control">
+          <view class="score-btn" bindtap="onScoreChange" data-field="awayScore" data-action="minus">
+            <text class="score-btn-text">−</text>
+          </view>
+          <input
+            class="score-input"
+            type="number"
+            value="{{awayScore}}"
+            bindinput="onInputScore"
+            data-field="awayScore"
+            maxlength="2"
+          />
+          <view class="score-btn" bindtap="onScoreChange" data-field="awayScore" data-action="plus">
+            <text class="score-btn-text">+</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 预测结果预览 -->
+    <view class="score-preview">
+      <text class="preview-text">预测：{{homeScore}} : {{awayScore}}</text>
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="submit-area">
+    <block wx:if="{{canEdit}}">
+      <button class="btn-submit" bindtap="onSubmit" loading="{{submitting}}">
+        {{submitting ? '提交中...' : (isEditing ? '修改竞猜' : '提交竞猜')}}
+      </button>
+      <!-- 删除按钮：仅在编辑模式时显示 -->
+      <view class="btn-delete-guess" wx:if="{{isEditing}}" bindtap="onDeleteGuess">
+        <text class="btn-delete-guess-text">删除竞猜</text>
+      </view>
+    </block>
+    <view class="edit-locked-tip" wx:else>
+      <text class="edit-locked-text">比赛已开始或已结束，无法提交竞猜</text>
+    </view>
+  </view>
+</view>

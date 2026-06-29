@@ -1,0 +1,9 @@
+{
+  "name": "getCountries",
+  "version": "1.0.0",
+  "description": "获取所有参赛国家列表",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^2.6.0"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "getAIPrediction",
+  "version": "1.0.0",
+  "description": "批量查询比赛的最新AI预测结果",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^3.16.0"
+  }
+}

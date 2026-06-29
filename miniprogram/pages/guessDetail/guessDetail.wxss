@@ -1,0 +1,275 @@
+.page-guess-detail {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #EFF6FF 0%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-header-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 32rpx 32rpx;
+  z-index: 2;
+}
+
+.nav-left, .nav-right {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.icon-back {
+  font-size: 56rpx;
+  color: #ffffff;
+  line-height: 56rpx;
+  padding: 0 12rpx;
+  font-weight: 300;
+}
+
+.nav-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* 比赛信息卡片 */
+.match-info {
+  margin: 24rpx 32rpx;
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+}
+
+.match-tournament {
+  font-size: 24rpx;
+  color: #155DFC;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 24rpx;
+  background: #EFF6FF;
+  display: inline-block;
+  padding: 4rpx 20rpx;
+  border-radius: 8rpx;
+  align-self: center;
+  width: auto;
+}
+
+.match-teams {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32rpx;
+}
+
+.team-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+  flex: 1;
+}
+
+.team-avatar-lg {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-flag-lg {
+  width: 128rpx;
+  height: 88rpx;
+  border-radius: 10rpx;
+}
+
+.team-avatar-text-lg {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.team-name-lg {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1A1A2E;
+  text-align: center;
+}
+
+.vs-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.vs-lg {
+  font-size: 36rpx;
+  font-weight: 800;
+  color: #D1D5DB;
+}
+
+.match-datetime {
+  background: #F3F4F6;
+  padding: 6rpx 16rpx;
+  border-radius: 12rpx;
+}
+
+.datetime-text {
+  font-size: 22rpx;
+  color: #6B7280;
+}
+
+/* 选择区域 */
+.selection-area {
+  flex: 1;
+  padding: 0 32rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1A1A2E;
+  display: block;
+  margin-bottom: 24rpx;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.option-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  background: #ffffff;
+  border: 2rpx solid #E5E7EB;
+  border-radius: 20rpx;
+  padding: 28rpx 32rpx;
+  transition: all 0.2s;
+}
+
+.option-card:active {
+  transform: scale(0.98);
+}
+
+.option-active {
+  border-color: #155DFC;
+  background: #EFF6FF;
+  box-shadow: 0 0 0 2rpx rgba(21, 93, 252, 0.15);
+}
+
+.option-emoji {
+  font-size: 40rpx;
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option-label {
+  flex: 1;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1A1A2E;
+}
+
+.option-desc {
+  font-size: 24rpx;
+  color: #9CA3AF;
+  margin-right: 20rpx;
+}
+
+.option-check {
+  width: 40rpx;
+  height: 40rpx;
+  background: #155DFC;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-icon {
+  font-size: 24rpx;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* 提交按钮 */
+.submit-area {
+  padding: 48rpx 0 120rpx;
+}
+
+.btn-submit {
+  width: 100%;
+  height: 96rpx;
+  background: linear-gradient(135deg, #155DFC, #193CB8);
+  border: none;
+  border-radius: 48rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-submit::after {
+  border: none;
+}
+
+.btn-disabled {
+  background: #D1D5DB;
+  color: #9CA3AF;
+}
+
+/* 分享者预测提示 */
+.sharer-hint {
+  margin: 24rpx 32rpx 0;
+  padding: 20rpx 24rpx;
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+  border-radius: 16rpx;
+  border: 2rpx solid #BFDBFE;
+}
+
+.sharer-hint-text {
+  font-size: 26rpx;
+  color: #155DFC;
+  line-height: 1.6;
+}
+
+/* 删除按钮 */
+.btn-delete-guess {
+  margin-top: 32rpx;
+  text-align: center;
+  padding: 16rpx 0;
+}
+
+.btn-delete-guess-text {
+  font-size: 28rpx;
+  color: #EF4444;
+}
+
+/* 不可编辑提示 */
+.edit-locked-tip {
+  padding: 24rpx 32rpx;
+  background: #FEF3C7;
+  border-radius: 16rpx;
+  border: 2rpx solid #FCD34D;
+  text-align: center;
+  margin-top: 16rpx;
+}
+
+.edit-locked-text {
+  font-size: 26rpx;
+  color: #92400E;
+  line-height: 1.6;
+}

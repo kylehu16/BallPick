@@ -1,0 +1,137 @@
+.page-index {
+  height: 100vh;
+  background: linear-gradient(180deg, #EFF6FF 0%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.nav-header-content {
+  position: relative;
+  padding: 16rpx 48rpx 32rpx;
+  z-index: 2;
+}
+
+.nav-title {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #ffffff;
+  display: block;
+}
+
+.nav-subtitle {
+  font-size: 28rpx;
+  color: #DBEAFE;
+  display: block;
+  margin-top: 8rpx;
+}
+
+/* 自定义 Tab 切换栏 */
+.tab-bar-wrapper {
+  background: #ffffff;
+  box-shadow: 0 2rpx 4rpx -2rpx rgba(0, 0, 0, 0.06), 0 4rpx 6rpx -1rpx rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 5;
+}
+
+.tab-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 92rpx;
+}
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rpx;
+  height: 100%;
+  border-bottom: 3rpx solid transparent;
+  transition: all 0.2s;
+}
+
+.tab-item-active {
+  border-bottom-color: #155DFC;
+}
+
+.tab-label {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #6A7282;
+}
+
+.tab-item-active .tab-label {
+  color: #155DFC;
+}
+
+.tab-count {
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #99A1AF;
+}
+
+.tab-item-active .tab-count {
+  color: #155DFC;
+}
+
+/* 分类筛选 Tag 栏 */
+.category-bar {
+  display: flex;
+  padding: 16rpx 32rpx;
+  gap: 16rpx;
+  background: #ffffff;
+  border-top: 2rpx solid rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 5;
+  overflow-x: auto;
+}
+
+.category-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52rpx;
+  padding: 0 28rpx;
+  border-radius: 9999rpx;
+  background: #ffffff;
+  border: 2rpx solid #E5E7EB;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.category-active {
+  background: #155DFC;
+  border-color: #155DFC;
+}
+
+.category-tag-text {
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #4A5565;
+}
+
+.category-active .category-tag-text {
+  color: #ffffff;
+}
+
+/* 比赛列表 */
+.match-list {
+  flex: 1;
+  padding: 8rpx 0 160rpx;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.loading-tip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60rpx 0;
+}
+
+.loading-tip-text {
+  font-size: 28rpx;
+  color: var(--text-tertiary);
+}

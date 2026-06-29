@@ -1,0 +1,42 @@
+# 本地开发环境配置
+.codebuddy/
+CODEBUDDY.md
+assets/
+.agents/
+
+# 依赖目录
+node_modules/
+
+# 微信开发者工具相关
+.miniapp/
+project.private.config.json
+*.private.config.json
+
+# 编译产物
+dist/
+build/
+
+# IDE 配置
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 日志
+*.log
+
+# 临时文件
+*.tmp
+.cache/
+
+# CloudBase CLI 本地配置（包含个人环境ID，不提交到仓库）
+cloudbaserc.json
+
+# CodeBuddy 技能锁定文件（本地环境配置）
+skills-lock.json
+
+# 项目本地配置文件（包含云环境信息）
+miniprogram/config.js

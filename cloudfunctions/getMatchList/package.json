@@ -1,0 +1,9 @@
+{
+  "name": "getMatchList",
+  "version": "1.0.0",
+  "description": "获取比赛列表，时间转换为北京时间",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^2.6.0"
+  }
+}

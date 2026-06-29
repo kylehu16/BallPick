@@ -1,0 +1,6 @@
+{
+  "name": "updateUserTeams",
+  "version": "1.0.0",
+  "description": "更新用户主队",
+  "main": "index.js"
+}

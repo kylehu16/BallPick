@@ -1,0 +1,9 @@
+{
+  "name": "initSportScoreTeams",
+  "version": "1.0.0",
+  "description": "初始化 sport_score_teams 集合数据（国家队）",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^2.6.0"
+  }
+}

@@ -1,0 +1,75 @@
+<view class="page-guess">
+  <!-- 自定义导航头 -->
+  <nav-header statusBarHeight="{{statusBarHeight}}">
+    <view class="nav-header-content">
+      <text class="nav-title">⚽ 这球怎么猜</text>
+      <text class="nav-subtitle">预测比赛结果，赢取徽章</text>
+    </view>
+  </nav-header>
+
+  <!-- 竞猜统计 -->
+  <view class="stats-row">
+    <view class="stats-card">
+      <text class="stats-number stats-number-blue">{{stats.total}}</text>
+      <text class="stats-label">总竞猜</text>
+    </view>
+    <view class="stats-card">
+      <text class="stats-number stats-number-green">{{stats.correct}}</text>
+      <text class="stats-label">预测正确</text>
+    </view>
+    <view class="stats-card">
+      <text class="stats-number stats-number-purple">{{stats.accuracy}}%</text>
+      <text class="stats-label">准确率</text>
+    </view>
+  </view>
+
+  <!-- 加载中 -->
+  <view class="loading-tip" wx:if="{{loading}}">
+    <text class="loading-tip-text">加载中...</text>
+  </view>
+
+  <!-- 竞猜记录列表 -->
+  <scroll-view class="guess-list" scroll-y>
+    <view
+      class="guess-card guess-card-{{item.status}}"
+      wx:for="{{guessList}}"
+      wx:key="_id"
+    >
+      <view class="guess-card-inner" bindtap="onCardTap" data-match-id="{{item.matchId}}" data-guess-type="{{item.guessType}}" data-match-time="{{item.matchTime}}" data-tournament="{{item.tournament}}">
+        <view class="guess-card-header">
+          <view class="guess-tags">
+            <view class="tag-tournament">{{item.tournament}}</view>
+            <view class="tag-type">{{item.guessType}}</view>
+          </view>
+          <text class="guess-date">{{item.displayDate}} {{item.displayTime}}</text>
+        </view>
+        <view class="guess-card-body">
+          <view class="guess-info">
+            <view class="guess-match-wrapper">
+                <image class="guess-flag" src="{{item.homeFlagUrl}}" mode="aspectFit" wx:if="{{item.homeFlagUrl}}"></image>
+                <text class="guess-team-name">{{item.homeTeam}}</text>
+                <text class="guess-vs">vs</text>
+                <image class="guess-flag" src="{{item.awayFlagUrl}}" mode="aspectFit" wx:if="{{item.awayFlagUrl}}"></image>
+                <text class="guess-team-name">{{item.awayTeam}}</text>
+              </view>
+            <view class="guess-detail">
+              <text class="guess-detail-label">我的预测：</text>
+              <text class="guess-detail-value">{{item.prediction}}</text>
+            </view>
+            <view class="guess-detail" wx:if="{{item.actual}}">
+              <text class="guess-detail-label">实际比分：</text>
+              <text class="guess-detail-value">{{item.actual}}</text>
+            </view>
+          </view>
+          <view class="guess-status guess-status-{{item.status}}">
+            <text>{{item.statusText}}</text>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 底部导航 -->
+  <bottom-tab current="guess"></bottom-tab>
+</view>

@@ -1,0 +1,33 @@
+/* 全局样式 */
+page {
+  --primary-color: #155DFC;
+  --primary-gradient: linear-gradient(90deg, #155DFC 0%, #193CB8 100%);
+  --text-primary: #0A0A0A;
+  --text-secondary: #6A7282;
+  --text-tertiary: #99A1AF;
+  --bg-page: #f0f4ff;
+  --bg-card: #ffffff;
+  --tag-yellow-bg: #FEF9C2;
+  --tag-yellow-border: #FFDF20;
+  --tag-yellow-text: #A65F00;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background-color: var(--bg-page);
+  font-size: 28rpx;
+  color: var(--text-primary);
+  box-sizing: border-box;
+}
+
+/* 图片上的暗色蒙版 overlay */
+.nav-header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.5));
+  border-bottom-left-radius: 48rpx;
+  border-bottom-right-radius: 48rpx;
+  z-index: 1;
+  pointer-events: none;
+}
+

@@ -1,0 +1,10 @@
+{
+  "name": "fetchWorldCupData",
+  "version": "1.0.0",
+  "description": "获取 2026 世界杯数据并写入数据库",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^2.6.0",
+    "axios": "^1.6.0"
+  }
+}

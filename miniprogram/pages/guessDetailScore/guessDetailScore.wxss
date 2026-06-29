@@ -1,0 +1,295 @@
+.page-guess-score {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #EFF6FF 0%, #ffffff 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-header-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16rpx 32rpx 32rpx;
+  z-index: 2;
+}
+
+.nav-left, .nav-right {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.icon-back {
+  font-size: 56rpx;
+  color: #ffffff;
+  line-height: 56rpx;
+  padding: 0 12rpx;
+  font-weight: 300;
+}
+
+.nav-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* 比赛信息卡片 */
+.match-info {
+  margin: 24rpx 32rpx;
+  background: #ffffff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+}
+
+.match-tournament {
+  font-size: 24rpx;
+  color: #155DFC;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 24rpx;
+  background: #EFF6FF;
+  display: inline-block;
+  padding: 4rpx 20rpx;
+  border-radius: 8rpx;
+  align-self: center;
+  width: auto;
+}
+
+.match-teams {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32rpx;
+}
+
+.team-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+  flex: 1;
+}
+
+.team-avatar-lg {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-flag-lg {
+  width: 128rpx;
+  height: 88rpx;
+  border-radius: 10rpx;
+}
+
+.team-avatar-text-lg {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.team-name-lg {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1A1A2E;
+  text-align: center;
+}
+
+.vs-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.vs-lg {
+  font-size: 36rpx;
+  font-weight: 800;
+  color: #D1D5DB;
+}
+
+.match-datetime {
+  background: #F3F4F6;
+  padding: 6rpx 16rpx;
+  border-radius: 12rpx;
+}
+
+.datetime-text {
+  font-size: 22rpx;
+  color: #6B7280;
+}
+
+/* 比分输入区域 */
+.score-area {
+  flex: 1;
+  padding: 0 32rpx;
+  margin-top: 32rpx;
+}
+
+.section-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #1A1A2E;
+  display: block;
+  margin-bottom: 40rpx;
+  text-align: center;
+}
+
+.score-input-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24rpx;
+}
+
+.score-team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20rpx;
+  flex: 1;
+}
+
+.score-team-name {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #374151;
+  text-align: center;
+}
+
+.score-control {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.score-btn {
+  width: 64rpx;
+  height: 64rpx;
+  background: #F3F4F6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-btn:active {
+  background: #E5E7EB;
+}
+
+.score-btn-text {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #374151;
+  line-height: 1;
+}
+
+.score-input {
+  width: 96rpx;
+  height: 96rpx;
+  background: #ffffff;
+  border: 3rpx solid #D1D5DB;
+  border-radius: 20rpx;
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #1A1A2E;
+  text-align: center;
+}
+
+.score-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40rpx;
+}
+
+.score-colon {
+  font-size: 56rpx;
+  font-weight: 800;
+  color: #D1D5DB;
+}
+
+/* 预测预览 */
+.score-preview {
+  margin-top: 48rpx;
+  text-align: center;
+}
+
+.preview-text {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #155DFC;
+  background: #EFF6FF;
+  padding: 12rpx 32rpx;
+  border-radius: 12rpx;
+}
+
+/* 提交按钮 */
+.submit-area {
+  padding: 48rpx 32rpx 120rpx;
+}
+
+.btn-submit {
+  width: 100%;
+  height: 96rpx;
+  background: linear-gradient(135deg, #155DFC, #193CB8);
+  border: none;
+  border-radius: 48rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-submit::after {
+  border: none;
+}
+
+/* 分享者预测提示 */
+.sharer-hint {
+  margin: 24rpx 32rpx 0;
+  padding: 20rpx 24rpx;
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+  border-radius: 16rpx;
+  border: 2rpx solid #BFDBFE;
+}
+
+.sharer-hint-text {
+  font-size: 26rpx;
+  color: #155DFC;
+  line-height: 1.6;
+}
+
+/* 删除按钮 */
+.btn-delete-guess {
+  margin-top: 32rpx;
+  text-align: center;
+  padding: 16rpx 0;
+}
+
+.btn-delete-guess-text {
+  font-size: 28rpx;
+  color: #EF4444;
+}
+
+/* 不可编辑提示 */
+.edit-locked-tip {
+  padding: 24rpx 32rpx;
+  background: #FEF3C7;
+  border-radius: 16rpx;
+  border: 2rpx solid #FCD34D;
+  text-align: center;
+  margin-top: 16rpx;
+}
+
+.edit-locked-text {
+  font-size: 26rpx;
+  color: #92400E;
+  line-height: 1.6;
+}

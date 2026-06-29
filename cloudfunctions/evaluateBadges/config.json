@@ -1,0 +1,9 @@
+{
+  "triggers": [
+    {
+      "name": "evaluateBadgesTimer",
+      "type": "timer",
+      "config": "0 0 * * * * *"
+    }
+  ]
+}

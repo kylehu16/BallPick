@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "比赛",
+  "usingComponents": {
+    "match-card": "/components/matchCard/matchCard"
+  },
+  "navigationStyle": "custom"
+}

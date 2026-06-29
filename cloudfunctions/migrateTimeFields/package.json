@@ -1,0 +1,9 @@
+{
+  "name": "migrateTimeFields",
+  "version": "1.0.0",
+  "description": "将数据库中的时间字段从数字格式(yyyyMMddHHmmss)迁移为 ISO 8601 字符串",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^2.6.0"
+  }
+}

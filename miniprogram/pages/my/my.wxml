@@ -1,0 +1,61 @@
+<view class="page-my">
+  <!-- 自定义导航头 -->
+  <nav-header statusBarHeight="{{statusBarHeight}}">
+    <view class="nav-header-content">
+      <text class="nav-title">⚽ 这球怎么猜</text>
+      <text class="nav-subtitle">预测比赛结果，赢取徽章</text>
+    </view>
+  </nav-header>
+
+  <!-- 用户信息卡片 -->
+  <view class="user-card">
+    <view class="user-row">
+      <!-- 头像 -->
+      <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+        <image class="user-avatar user-avatar-img" src="{{avatarUrl}}" mode="aspectFill" wx:if="{{avatarUrl}}"></image>
+        <view class="user-avatar" wx:else>
+          <image class="avatar-icon" src="/assets/CodeBuddyAssets/8_1197/1.svg" mode="aspectFit"></image>
+        </view>
+      </button>
+
+      <view class="user-info">
+        <form bindsubmit="onNicknameSubmit" class="nickname-form">
+          <input
+            class="nickname-input"
+            type="nickname"
+            placeholder="点击获取微信昵称"
+            value="{{nickName}}"
+            name="nickname"
+            bindinput="onNicknameInput"
+            maxlength="20"
+          />
+        </form>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-list">
+    <view class="menu-card" bindtap="onMyTeamTap">
+      <view class="menu-left">
+        <view class="menu-text">
+          <text class="menu-title">我的主队</text>
+          <view class="team-flags" wx:if="{{myTeams.length > 0}}">
+            <image
+              class="team-flag"
+              wx:for="{{myTeams}}"
+              wx:key="_id"
+              src="{{item.flagUrl}}"
+              mode="aspectFill"
+            />
+          </view>
+          <text class="menu-desc menu-desc-hint" wx:else>选择你支持的球队</text>
+        </view>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 底部导航 -->
+  <bottom-tab current="my"></bottom-tab>
+</view>

@@ -1,0 +1,9 @@
+{
+  "name": "initDatabase",
+  "version": "1.0.0",
+  "description": "初始化数据库集合数据（matches、guesses、users、badges、user_badges）",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^2.6.0"
+  }
+}
