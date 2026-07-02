@@ -80,17 +80,30 @@ async function processOneMatch(match, db, ai, _, forcePredict) {
   try {
     // 去重：批量模式（无 matchId）下，只预测从未预测过或最近一次超过 6 小时的比赛
     // 指定 matchId 时（forcePredict=true），不做去重直接预测
+    // 例外：距离开赛时间不足1小时或等于1小时的比赛，即便6小时内已预测过也要重新预测
     if (!forcePredict) {
-      const sixHoursAgoMs = Date.now() - 6 * 60 * 60 * 1000;
-      const threshold = toISOTime(new Date(sixHoursAgoMs));
-      const recentRes = await db.collection('ai_predictions')
-        .where({ matchId: match._id, createdAt: _.gte(threshold) })
-        .limit(1)
-        .get();
+      // 计算距离开赛时间
+      const matchTimeMs = new Date(match.matchTime).getTime();
+      const nowMs = Date.now();
+      const msUntilMatch = matchTimeMs - nowMs;
+      const oneHourMs = 60 * 60 * 1000;
+      const withinOneHour = msUntilMatch >= 0 && msUntilMatch <= oneHourMs;
       
-      if (recentRes.data && recentRes.data.length > 0) {
-        console.log(`比赛 ${match._id} 最近6小时内已有预测记录，跳过`);
-        return { matchId: match._id, status: 'skipped', reason: '6小时内已有预测' };
+      if (!withinOneHour) {
+        // 距离开赛超过1小时，正常执行6小时去重
+        const sixHoursAgoMs = Date.now() - 6 * 60 * 60 * 1000;
+        const threshold = toISOTime(new Date(sixHoursAgoMs));
+        const recentRes = await db.collection('ai_predictions')
+          .where({ matchId: match._id, createdAt: _.gte(threshold) })
+          .limit(1)
+          .get();
+        
+        if (recentRes.data && recentRes.data.length > 0) {
+          console.log(`比赛 ${match._id} 最近6小时内已有预测记录，跳过`);
+          return { matchId: match._id, status: 'skipped', reason: '6小时内已有预测' };
+        }
+      } else {
+        console.log(`比赛 ${match._id} 距离开赛不足或等于1小时，忽略6小时去重，强制重新预测`);
       }
     }
     
@@ -170,7 +183,7 @@ async function callAIModel(match, ai) {
 
 1. 双方首发阵容及替补球员（优先搜索）
    - 优先搜索两队当天比赛的实际首发11人及替补名单
-   - 若当天首发尚未公布，则根据两队最近10场比赛的出场记录推断预计首发及替补，标注推断依据
+   - 若当天首发尚未公布，则搜索预测首发。若还是没有根据两队最近10场比赛的出场记录推断预计首发及替补，标注推断依据
    - 阵型安排（4-3-3、4-4-2、3-5-2、4-2-3-1 等）
 
 2. 踢球风格
